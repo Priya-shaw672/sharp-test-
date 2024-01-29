@@ -1,19 +1,17 @@
 from django.db import models
-import uuid
+from django.contrib.auth.models import User
 
-# Create your models here.
-'''class Login(models.Model):
-    email=models.CharField(max_length=255)
-    username=models.CharField(max_length=255)
-    password=models.CharField(max_length=156)
-    confirm_password=models.CharField(max_length=156)
-
-    class Meta: #above class property,meta is rootclass ,it is keyword in django 
-        db_table="userinfo"
-
+class Register(models.Model):
+    username = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
 
     class Meta:
-        db_table="submitquestions" '''
+        db_table = 'signup'
+
+
+
+
 class Exam (models.Model):
         Question =models.CharField(max_length=255)
         option1=models.CharField(max_length=255)

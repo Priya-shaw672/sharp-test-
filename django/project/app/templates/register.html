@@ -63,7 +63,9 @@
   </nav>
 
   <h1 class="display-4 text-center my-5">Register</h1>
-
+</hr>
+<form method="POST">
+  {% csrf_token%}
   <div class="container">
     <div class="row row-cols-sm-1 row-cols-lg-3 container">
       <div class="col-12">
@@ -73,30 +75,29 @@
           <div class="mb-3">
             <label for="exampleInputEmail2" class="form-label visually-hidden">Email</label>
             <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"
-              placeholder="Email">
+              placeholder="Email" name="email" required>
           </div>
           <div class="mb-3">
             <label for="exampleInputUsername1" class="form-label visually-hidden">Username</label>
             <input type="text" class="form-control" id="exampleInputUsername1" aria-describedby="emailHelp"
-              placeholder="Username">
+              placeholder="Username" name="username" required>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label visually-hidden">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" required>
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword2" class="form-label visually-hidden">Repeat Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Repeat Password">
-          </div>
+          
           <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <a href="{% url 'webpage18' %}">Terms and Conditions</a>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <p class="my-4">Already a member? <b><a href="{% url 'webpage2' %}" class="btn btn-info">Login</a></b></p>
+          <button type="submit" value="Insert Record"class="btn btn-primary">Submit</button> {% if messages %}  {% for messages in messages%}
+          <p class="my-4">Already a member? <b><a href="{% url 'webpage2' %}">Login</a></b></p>
+          <h2 style="color: green;">{{message}}</h2>
+        {% endfor %}{% endif %}
         </form>
-      </div>
-      <div class="col-12">
+        <hr/>
+
       </div>
     </div>
   </div>

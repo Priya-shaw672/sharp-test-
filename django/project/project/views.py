@@ -4,7 +4,8 @@ from project import views
 from app.models import Exam
 from app.models import Gk
 from app.models import Django
-
+from app.models import Register
+from django.contrib import messages
 
 # Create your views here.
 def webpage1(request):
@@ -42,7 +43,16 @@ def webpage9(request):
     return render(request,'physics.html')
 
 def webpage10(request):
-    return render(request,'register.html')
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        saverecord = Register(email=email, username=username, password=password)
+        saverecord.save()
+        messages.success(request, 'Record saved successfully!')
+        return HttpResponse("This is a POST request")
+    else:
+        return render(request, 'register.html')
 
 def webpage11(request):
     return render(request,'blogs.html')
