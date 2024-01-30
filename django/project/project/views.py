@@ -6,6 +6,11 @@ from app.models import Gk
 from app.models import Django
 from app.models import Register
 from django.contrib import messages
+from app .models import Answer
+
+from django.shortcuts import render, redirect
+
+
 
 # Create your views here.
 def webpage1(request):
@@ -86,4 +91,10 @@ def webpage19(request):
 def home(request):
     exam=Exam.objects.all()
     return render(request,"question.html",{"exam":exam})
+def show(request):
+    userdetails = Answer.objects.all()
+    return render(request, "admin/userinfo.html", {'userdetails': userdetails})
 
+
+#def quiz_result(request, quiz_id, score):
+ #   return render(request, 'quiz_app/quiz_result.html', {'quiz_id': quiz_id, 'score': score})

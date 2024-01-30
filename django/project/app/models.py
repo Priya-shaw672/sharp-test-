@@ -41,4 +41,11 @@ class Django (models.Model):
         correct=models.CharField(max_length=255)
         marks=models.CharField(max_length=255) 
 
+
+class Answer(models.Model):
+        question =models.ForeignKey(Django,on_delete=models.CASCADE)     
+        text=models.CharField(max_length=255)
+        is_correct = models.BooleanField(default=False)  
+        marks1=models.IntegerField(default=0) 
+
                                

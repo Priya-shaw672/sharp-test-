@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from app.views import *
 from . import views
+#from.views import quiz_view
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
@@ -42,6 +43,7 @@ urlpatterns = [
            path('terms and condition',views.webpage18,name='webpage18'),
            path('profile',views.webpage19,name='webpage19'),
            path('question',views.home,name='home'),
+           #path('quiz/',quiz_view,name="quiz_view")
            
 
 
